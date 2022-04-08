@@ -1,0 +1,12 @@
+C:\Users\umar.hassan\source\repos\TracingTest\TracingTest\bin\Debug\TracingTest.exe.config
+C:\Users\umar.hassan\source\repos\TracingTest\TracingTest\bin\Debug\TracingTest.exe
+C:\Users\umar.hassan\source\repos\TracingTest\TracingTest\bin\Debug\TracingTest.pdb
+C:\Users\umar.hassan\source\repos\TracingTest\TracingTest\bin\Debug\netDxf.dll
+C:\Users\umar.hassan\source\repos\TracingTest\TracingTest\bin\Debug\netDxf.xml
+C:\Users\umar.hassan\source\repos\TracingTest\TracingTest\obj\Debug\TracingTest.csproj.AssemblyReference.cache
+C:\Users\umar.hassan\source\repos\TracingTest\TracingTest\obj\Debug\TracingTest.Form1.resources
+C:\Users\umar.hassan\source\repos\TracingTest\TracingTest\obj\Debug\TracingTest.Properties.Resources.resources
+C:\Users\umar.hassan\source\repos\TracingTest\TracingTest\obj\Debug\TracingTest.csproj.GenerateResource.cache
+C:\Users\umar.hassan\source\repos\TracingTest\TracingTest\obj\Debug\TracingTest.csproj.CoreCompileInputs.cache
+C:\Users\umar.hassan\source\repos\TracingTest\TracingTest\obj\Debug\TracingTest.exe
+C:\Users\umar.hassan\source\repos\TracingTest\TracingTest\obj\Debug\TracingTest.pdb
