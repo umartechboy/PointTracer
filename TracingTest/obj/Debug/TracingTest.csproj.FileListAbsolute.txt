@@ -10,3 +10,16 @@ C:\Users\umar.hassan\source\repos\TracingTest\TracingTest\obj\Debug\TracingTest.
 C:\Users\umar.hassan\source\repos\TracingTest\TracingTest\obj\Debug\TracingTest.csproj.CoreCompileInputs.cache
 C:\Users\umar.hassan\source\repos\TracingTest\TracingTest\obj\Debug\TracingTest.exe
 C:\Users\umar.hassan\source\repos\TracingTest\TracingTest\obj\Debug\TracingTest.pdb
+C:\Users\techboy\Documents\GitHub\PointTracer\TracingTest\bin\Debug\TracingTest.exe.config
+C:\Users\techboy\Documents\GitHub\PointTracer\TracingTest\bin\Debug\TracingTest.exe
+C:\Users\techboy\Documents\GitHub\PointTracer\TracingTest\bin\Debug\TracingTest.pdb
+C:\Users\techboy\Documents\GitHub\PointTracer\TracingTest\bin\Debug\netDxf.dll
+C:\Users\techboy\Documents\GitHub\PointTracer\TracingTest\bin\Debug\netDxf.xml
+C:\Users\techboy\Documents\GitHub\PointTracer\TracingTest\obj\Debug\TracingTest.csproj.AssemblyReference.cache
+C:\Users\techboy\Documents\GitHub\PointTracer\TracingTest\obj\Debug\TracingTest.Form1.resources
+C:\Users\techboy\Documents\GitHub\PointTracer\TracingTest\obj\Debug\TracingTest.Properties.Resources.resources
+C:\Users\techboy\Documents\GitHub\PointTracer\TracingTest\obj\Debug\TracingTest.csproj.GenerateResource.cache
+C:\Users\techboy\Documents\GitHub\PointTracer\TracingTest\obj\Debug\TracingTest.csproj.CoreCompileInputs.cache
+C:\Users\techboy\Documents\GitHub\PointTracer\TracingTest\obj\Debug\TracingTest.csproj.CopyComplete
+C:\Users\techboy\Documents\GitHub\PointTracer\TracingTest\obj\Debug\TracingTest.exe
+C:\Users\techboy\Documents\GitHub\PointTracer\TracingTest\obj\Debug\TracingTest.pdb
