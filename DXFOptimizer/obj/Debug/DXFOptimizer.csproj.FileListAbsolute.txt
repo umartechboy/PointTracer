@@ -1,0 +1,14 @@
+C:\Users\techboy\Documents\GitHub\PointTracer\DXFOptimizer\bin\Debug\DXFOptimizer.exe.config
+C:\Users\techboy\Documents\GitHub\PointTracer\DXFOptimizer\bin\Debug\DXFOptimizer.exe
+C:\Users\techboy\Documents\GitHub\PointTracer\DXFOptimizer\bin\Debug\DXFOptimizer.pdb
+C:\Users\techboy\Documents\GitHub\PointTracer\DXFOptimizer\bin\Debug\netDxf.dll
+C:\Users\techboy\Documents\GitHub\PointTracer\DXFOptimizer\bin\Debug\netDxf.xml
+C:\Users\techboy\Documents\GitHub\PointTracer\DXFOptimizer\obj\Debug\DXFOptimizer.csproj.AssemblyReference.cache
+C:\Users\techboy\Documents\GitHub\PointTracer\DXFOptimizer\obj\Debug\DXFOptimizer.csproj.SuggestedBindingRedirects.cache
+C:\Users\techboy\Documents\GitHub\PointTracer\DXFOptimizer\obj\Debug\DXFOptimizer.Form1.resources
+C:\Users\techboy\Documents\GitHub\PointTracer\DXFOptimizer\obj\Debug\DXFOptimizer.Properties.Resources.resources
+C:\Users\techboy\Documents\GitHub\PointTracer\DXFOptimizer\obj\Debug\DXFOptimizer.csproj.GenerateResource.cache
+C:\Users\techboy\Documents\GitHub\PointTracer\DXFOptimizer\obj\Debug\DXFOptimizer.csproj.CoreCompileInputs.cache
+C:\Users\techboy\Documents\GitHub\PointTracer\DXFOptimizer\obj\Debug\DXFOptimizer.csproj.CopyComplete
+C:\Users\techboy\Documents\GitHub\PointTracer\DXFOptimizer\obj\Debug\DXFOptimizer.exe
+C:\Users\techboy\Documents\GitHub\PointTracer\DXFOptimizer\obj\Debug\DXFOptimizer.pdb
