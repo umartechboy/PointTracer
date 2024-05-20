@@ -87,6 +87,7 @@ class DXControl {
 		this.DXControls.Remove(dxc);
 	}
 	AddedToParent(parent) {
+		//log("Set Parent: " + parent.Name + " of " + this.Name);
 		this.Parent = parent;
 		for (var i = 0; i < this.DXControls.Count; i++)
 			this.DXControls.InnerList[i].AddedToParent(this);
@@ -143,8 +144,10 @@ class DXControl {
 			if (this.wentDownInBounds == true) {
 				if (this.VisualStates.MouseDownState.AllowAutoTransition)
 					this.VisualStates.AnimateInto(this.VisualStates.MouseDownState, this.MouseClickAnimation, 100);
-				if (Math.sqrt(Math.pow(this.wentDownAt.X - this.MousePosition.X, 2) + Math.Pow(this.wentDownAt.X - this.MousePosition.X, 2)) < 5)
+				if (Math.sqrt(Math.pow(this.wentDownAt.X - this.MousePosition.X, 2) + Math.Pow(this.wentDownAt.X - this.MousePosition.X, 2)) < 5) {
+					log("Click 2: " + this.Name);
 					this.NotifyClick(this, e);
+				}
 				return true;
 			}
 		}
@@ -189,7 +192,7 @@ class DXControl {
 
 				this.NotifyMouseUp(this, e);
 				if (Math.sqrt(Math.pow(this.wentDownAt.X - e.X, 2) + Math.pow(this.wentDownAt.Y - e.Y, 2)) < 5) {
-
+					//log("Click 1: " + this.Name);
 					this.NotifyClick(this, e);
 				}
 			}
@@ -427,18 +430,21 @@ class DXControl {
 			this.VisualStates.SetBorderColor("black");
 			this.VisualStates.SetupMouseHover(VisualPresets.EnlargeWithBorder);
 			this.VisualStates.SetupMouseClick(VisualPresets.EnlargeWithBorder);
+			this.ZOrder = 40; // default Z order
 			this.OnClick.Add((s, e) => {
-				log("Click: " + this.Name);
-				if (s.Parent == null) { }
+				//log("Click: " + this.Name);
+				if (s.Parent == null) {
+					log("parent is null.")
+				}
 				else {
 					for (var i = 0; i < s.Parent.DXControls.Count; i++) {
-						rb = s.Parent.DXControls.InnerList[i];
+						var rb = s.Parent.DXControls.InnerList[i];
 						if (rb.Behaviour == DXControlBehaviour.RadioButton
 							&&
 							rb.ZOrder == s.ZOrder
 							&&
 							rb != s) {
-							log("RB: " + rb.Name);
+							//log("RB: " + rb.Name);
 							var vs = rb.CurrentVisualState.Clone();
 							vs.BorderThickness = 0.0;
 							vs.OnAnimationComplete.Add((s2, e2) => {
@@ -446,13 +452,13 @@ class DXControl {
 								rb.VisualStates.NormalVisualState.BorderThickness = 0;
 								rb.VisualStates.MouseHoverState.BorderThickness = 1;
 							});
-							rb.VisualStates.AnimateIntoVS(vs, MixType.Linear);
+							rb.VisualStates.AnimateInto(vs, MixType.Linear);
 							vs = s.CurrentVisualState.Clone();
 							vs.BorderThickness = 1.0;
 							vs.OnAnimationComplete.Add((s2, e2) => {
 								s.VisualStates.SetBorderThickness(1);
 							});
-							s.VisualStates.AnimateIntoVS(vs, MixType.Linear);
+							s.VisualStates.AnimateInto(vs, MixType.Linear);
 						}
 					}
 				}

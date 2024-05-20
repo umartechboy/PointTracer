@@ -115,7 +115,9 @@ class List
 	{
 		return InnerList;
 	}
-
+	Last() {
+		return this.InnerList[this.Count - 1];
+    }
 	Add(value)
 	{
 		this.InnerList[this.Count] = value;

@@ -148,9 +148,9 @@ class HTMLTextBoxWrapper extends RectangularPatch {
 	}
 	onClick(s, p)
 	{
-		log("Click");
+		//log("Click");
 		var input = document.getElementById("textentry");
-		log("Found: " + input);
+		//log("Found: " + input);
 		var tAllign = "left";
 		if (s.ImageAllignment == ContentAllignment.HorizontalCenter_Overlap ||
 			s.ImageAllignment == ContentAllignment.Center_ImageOnBottom ||

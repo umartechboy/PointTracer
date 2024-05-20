@@ -62,6 +62,14 @@ class HybridGraphics {
         this.ctx.rect(x, y, width, height);
         this.ctx.stroke();
     }
+    DrawEllipse(pen, x, y, width, height) {
+
+        this.ctx.lineWidth = pen.Thickness;
+        this.ctx.strokeStyle = pen.Color;
+        this.ctx.beginPath();
+        this.ctx.ellipse(x + width / 2, y + height / 2, width / 2, height / 2, 0, 0, 2 * Math.PI);
+        this.ctx.stroke();
+    }
     FillCircle(color, xc, yc, radius) {
         this.ctx.beginPath();
         this.ctx.arc(xc, yc, radius, 0, 2 * Math.PI, false);

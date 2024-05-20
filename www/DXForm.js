@@ -4,14 +4,45 @@
 var PaintTick = null;
 class DXForm
 {
-	constructor()
-	{
+	constructor() {
 		this.DXControls = new List();
 		this.MouseWentDownAt = new Point();
 		this.currentControlUnderMouse = null;
 		this.CaretFocus = null;
+		this.openFileChild = null;
 	}
-	
+	FormOpenFileCallBack(event) {
+		document.body.removeChild(this.openFileChild);
+		this.openFileCallBack(event.target.files);
+		//new OpenFileDialogResult(event, (res) => { this.openFileCallBack(res); });
+	}
+	SaveTextFile(filename, text) {
+		var element = document.createElement('a');
+		element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+		element.setAttribute('download', filename);
+
+		element.style.display = 'none';
+		document.body.appendChild(element);
+		element.click();
+		document.body.removeChild(element);
+	}
+	OpenFile(callback, filter) {
+		if (filter == null)
+			filter = accept = "*";
+		var container = document.createElement('div');
+		this.openFileCallBack = null;
+		container.id = "openFileInput";
+		$('body').append(container);
+		var html = "<input type='file' style='display: none' accept='" + filter + "' id='formFileInput' onchange='Form.FormOpenFileCallBack(event)'/>";
+		//log(html);
+		$('#openFileInput').append(html);
+		document.body.append("");
+		this.openFileChild = container;
+
+
+		this.openFileCallBack = callback;
+		$("input").trigger("click");
+    }
 	OnPaint(hyg)
 	{
 		if (PaintTick != null)
@@ -39,6 +70,32 @@ class DXForm
 		control.AddedToParent(null);
 		return control;
 	}
+
+	GetDXControlsZOrdered(highestFirst) {
+		var out = new List();
+		for (var i = 0; i < this.DXControls.Count; i++) {
+			out.Add(this.DXControls.InnerList[i]);
+		}
+		for (var i = 0; i < this.DXControls.Count; i++) {
+			for (var j = i + 1; j < this.DXControls.Count; j++) {
+				if (highestFirst) {
+					if (out.InnerList[j].ZOrder > out.InnerList[i].ZOrder) {
+						var t = out.InnerList[i];
+						out.InnerList[i] = out.InnerList[j];
+						out.InnerList[j] = t;
+					}
+				}
+				else {
+					if (out.InnerList[j].ZOrder < out.InnerList[i].ZOrder) {
+						var t = out.InnerList[i];
+						out.InnerList[i] = out.InnerList[j];
+						out.InnerList[j] = t;
+					}
+				}
+			}
+		}
+		return out;
+	}
 }
 function requestInstantDisplay() {
 	var g = new HybridGraphics(Canvas);
@@ -62,8 +119,9 @@ addEventListener("mousemove", (e) => {
 		return;
 	}
 
-	for (let i = Form.DXControls.Count - 1; i >= 0; i--)
-		if (Form.DXControls.InnerList[i].ProcessMouseMove(e2, Form.currentControlUnderMouse))
+	var controls = Form.GetDXControlsZOrdered(false);
+	for (let i = controls.Count - 1; i >= 0; i--)
+		if (controls.InnerList[i].ProcessMouseMove(e2, Form.currentControlUnderMouse))
 			break;
 });
 addEventListener("mousedown", (e) => {
@@ -82,8 +140,9 @@ addEventListener("mousedown", (e) => {
 		return;
 	}
 	//log('Down at:' + x + ', '+ y);
-	for (let i = Form.DXControls.Count - 1; i >= 0; i--) {
-		Form.currentControlUnderMouse = Form.DXControls.InnerList[i].ProcessMouseDown(e2);
+	var controls = Form.GetDXControlsZOrdered(false);
+	for (let i = controls.Count - 1; i >= 0; i--){
+		Form.currentControlUnderMouse = controls.InnerList[i].ProcessMouseDown(e2);
 		if (Form.currentControlUnderMouse != null)
 			return;
 	}
@@ -99,8 +158,9 @@ addEventListener("mouseup", (e) => {
 		return;
 	}
   //log('Up at:' + x + ', '+ y);
+  var controls = Form.GetDXControlsZOrdered(false);
   for (let i = Form.DXControls.Count - 1; i >= 0; i--)
-	Form.DXControls.InnerList[i].ProcessMouseUp(e2, Form.currentControlUnderMouse);
+	  controls.InnerList[i].ProcessMouseUp(e2, Form.currentControlUnderMouse);
   Form.currentControlUnderMouse = null;
 });
 addEventListener("click", (e) => {
@@ -116,3 +176,20 @@ addEventListener("click", (e) => {
 	for (let i = Form.DXControls.Count - 1; i >= 0; i--)
 		Form.DXControls.InnerList[i].ProcessMouseClick(e1, Form.currentControlUnderMouse);
 });
+
+class OpenFileDialogResult {
+	constructor(event, readerLoad) {
+		this.File = event.target.files[0];
+		this.AllFileURLs = new List();
+
+		this.FileReader = new FileReader();
+		var reader = new FileReader();
+		reader.onload = function (e) {
+			log("loaded");
+			readerLoad(URL.createObjectURL(this.File));
+		};
+
+		log("reader made: " + event.target.files[0]);
+		this.FileReader.readAsDataURL(event.target.files[0]);
+    }
+}
